@@ -22,13 +22,13 @@ const projects = [
         title: "Kokovit Webpage",
         type: "web",
         description: "Built a webpage for a local business, Kokovit.",
-        tech: "HTML · CSS · JS",
+        tech: "Next.JS",
     },
     {
         title: "Raylib 3D Solar System",
         type: "side project",
         description: "A 3D solar system built with Raylib. Written in my free time.",
-        tech: "C++ · Raylib",
+        tech: "C++ · Raylib · 3D",
     },
     {
         title: "TaskFall",
@@ -51,7 +51,7 @@ const education = [
         title: "Bachelors in Computer Science",
         period: "2025 — Present",
         org: "Faculty of Electrical Engineering, Computer Science and Informatics",
-        note: "Currently going into my second year. Focusing on ML/data engineering, server management, and personal projects.",
+        note: "Currently going into my second year. Focusing on automatization, AI/ML engineering, web development, server management, and personal projects.",
     },
     {
         title: "Computer Technician",
@@ -203,7 +203,7 @@ export default function Home() {
                     <p className="mt-4 font-mono text-xs text-zinc-400">
                         Discover more on{" "}
                         <a
-                            href="https://github.com/"
+                            href="https://github.com/strnadaljaz"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-zinc-100 underline decoration-emerald-300 underline-offset-4 transition-colors hover:text-emerald-300"
