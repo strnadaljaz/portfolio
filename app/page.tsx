@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 /* ---------- data ---------- */
 
@@ -63,11 +63,44 @@ const education = [
 
 const currentYear = new Date().getFullYear();
 
+/* ---------- scroll-reveal hook ---------- */
+
+function useRevealOnScroll() {
+    const containerRef = useRef<HTMLDivElement | null>(null);
+
+    useEffect(() => {
+        const root = containerRef.current;
+        if (!root) return;
+
+        const targets = root.querySelectorAll<HTMLElement>(
+            ".reveal, .reveal-stagger"
+        );
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("is-visible");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.12, rootMargin: "0px 0px -60px 0px" }
+        );
+
+        targets.forEach((el) => observer.observe(el));
+        return () => observer.disconnect();
+    }, []);
+
+    return containerRef;
+}
+
 /* ---------- component ---------- */
 
 export default function Home() {
     const [active, setActive] = useState("#about");
     const [progress, setProgress] = useState(0);
+    const revealRef = useRevealOnScroll();
 
     useEffect(() => {
         function onScroll() {
@@ -106,43 +139,47 @@ export default function Home() {
     ];
 
     return (
-        <div className="relative z-10 mx-auto grid max-w-[1080px] grid-cols-1 gap-16 px-6 md:grid-cols-[1fr_2fr] md:px-8">
+        <div
+            ref={revealRef}
+            className="relative z-10 mx-auto grid max-w-[1080px] grid-cols-1 gap-16 px-6 md:grid-cols-[1fr_2fr] md:px-8"
+        >
             {/* LEFT SIDE */}
             <aside className="flex h-auto flex-col justify-center py-16 md:sticky md:top-0 md:h-screen md:py-12">
-                <h1 className="text-4xl font-bold leading-tight tracking-tight">
+                <h1 className="reveal text-4xl font-bold leading-tight tracking-tight">
                     Aljaž Strnad
                 </h1>
-                <p className="mt-3 font-mono text-sm tracking-wide text-emerald-300">
+                <p className="reveal mt-3 font-mono text-sm tracking-wide text-emerald-300" style={{ transitionDelay: "60ms" }}>
                     {"// software engineer"}
                 </p>
-                <p className="mt-6 max-w-[280px] text-zinc-400">
+                <p className="reveal mt-6 max-w-[280px] text-zinc-400" style={{ transitionDelay: "120ms" }}>
                     Building modern, efficient, and user-friendly software. I enjoy solving
                     complex problems and turning ideas into reality with clean code,
                     scalable architecture, and intuitive design.
                 </p>
 
-                <nav className="mt-12 flex flex-row flex-wrap gap-4 md:flex-col md:gap-1">
-                    {navItems.map((item) => (
-                        <a
-                            key={item.href}
-                            href={item.href}
-                            className={`group flex items-center gap-3 py-1.5 font-mono text-xs transition-colors md:text-[0.8rem] ${active === item.href
-                                ? "text-zinc-100"
-                                : "text-zinc-400 hover:text-zinc-100"
-                                }`}
-                        >
-                            <span
-                                className={`hidden h-px bg-zinc-400 transition-all duration-300 md:block ${active === item.href
-                                    ? "w-10 bg-emerald-300"
-                                    : "w-6 group-hover:w-10 group-hover:bg-emerald-300"
+                <nav className="reveal mt-12 flex flex-row flex-wrap gap-4 md:flex-col md:gap-1" style={{ transitionDelay: "180ms" }}>
+                    {navItems.map((item) => {
+                        const isActive = active === item.href;
+                        return (
+                            <a
+                                key={item.href}
+                                href={item.href}
+                                className={`group flex items-center gap-3 py-1.5 font-mono text-xs transition-colors md:text-[0.8rem] ${isActive ? "text-zinc-100" : "text-zinc-400 hover:text-zinc-100"
                                     }`}
-                            />
-                            {item.label}
-                        </a>
-                    ))}
+                            >
+                                <span
+                                    className={`hidden h-px bg-zinc-400 transition-all duration-300 md:block ${isActive
+                                            ? "w-10 bg-emerald-300 nav-active-pulse"
+                                            : "w-6 group-hover:w-10 group-hover:bg-emerald-300"
+                                        }`}
+                                />
+                                {item.label}
+                            </a>
+                        );
+                    })}
                 </nav>
 
-                <div className="mt-12 hidden h-px w-full max-w-[200px] bg-zinc-800 md:block">
+                <div className="reveal mt-12 hidden h-px w-full max-w-[200px] bg-zinc-800 md:block" style={{ transitionDelay: "240ms" }}>
                     <span
                         className="block h-full bg-emerald-300 transition-[width] duration-100"
                         style={{ width: `${progress}%` }}
@@ -154,15 +191,17 @@ export default function Home() {
             <main className="pb-20 pt-8 md:pb-40 md:pt-28">
                 {/* about */}
                 <section id="about" className="scroll-mt-24">
-                    <Label>01 — about</Label>
-                    <h2 className="text-[clamp(2rem,4vw,3.2rem)] font-bold leading-[1.1] tracking-tight">
+                    <div className="reveal">
+                        <Label>01 — about</Label>
+                    </div>
+                    <h2 className="reveal text-[clamp(2rem,4vw,3.2rem)] font-bold leading-[1.1] tracking-tight" style={{ transitionDelay: "80ms" }}>
                         I solve{" "}
                         <span className="text-emerald-300">complex problems</span>.
                         <br />
                         I build{" "}
                         <span className="text-emerald-300">useful software</span>.
                     </h2>
-                    <p className="mt-6 max-w-[520px] text-[1.05rem] text-zinc-400">
+                    <p className="reveal mt-6 max-w-[520px] text-[1.05rem] text-zinc-400" style={{ transitionDelay: "160ms" }}>
                         I&apos;m a full-stack developer with a passion for clean code,
                         scalable architecture, and intuitive design. I work on web
                         development, machine learning, and occasionally 2D/3D graphics.
@@ -175,13 +214,16 @@ export default function Home() {
                     id="projects"
                     className="mt-20 scroll-mt-24 border-t border-zinc-800 pt-16"
                 >
-                    <Label>02 — projects</Label>
+                    <div className="reveal">
+                        <Label>02 — projects</Label>
+                    </div>
                     <div>
                         {projects.map((p, i) => (
                             <article
                                 key={p.title}
-                                className={`py-7 transition-opacity hover:opacity-85 ${i !== 0 ? "border-t border-zinc-800" : ""
+                                className={`reveal-stagger py-7 transition-opacity hover:opacity-85 ${i !== 0 ? "border-t border-zinc-800" : ""
                                     }`}
+                                style={{ ["--delay" as string]: `${i * 80}ms` }}
                             >
                                 <div className="flex items-baseline justify-between gap-4">
                                     <h3 className="text-xl font-semibold tracking-tight">
@@ -200,13 +242,13 @@ export default function Home() {
                             </article>
                         ))}
                     </div>
-                    <p className="mt-4 font-mono text-xs text-zinc-400">
+                    <p className="reveal mt-4 font-mono text-xs text-zinc-400">
                         Discover more on{" "}
                         <a
                             href="https://github.com/strnadaljaz"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-zinc-100 underline decoration-emerald-300 underline-offset-4 transition-colors hover:text-emerald-300"
+                            className="link-underline text-zinc-100 decoration-emerald-300 transition-colors hover:text-emerald-300"
                         >
                             GitHub
                         </a>
@@ -219,18 +261,25 @@ export default function Home() {
                     id="skills"
                     className="mt-20 scroll-mt-24 border-t border-zinc-800 pt-16"
                 >
-                    <Label>03 — skills</Label>
+                    <div className="reveal">
+                        <Label>03 — skills</Label>
+                    </div>
                     <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
-                        {Object.entries(skills).map(([group, items]) => (
-                            <div key={group}>
+                        {Object.entries(skills).map(([group, items], gi) => (
+                            <div
+                                key={group}
+                                className="reveal-stagger"
+                                style={{ ["--delay" as string]: `${gi * 100}ms` }}
+                            >
                                 <h3 className="mb-3 font-mono text-xs uppercase tracking-wider text-emerald-300">
                                     {group}
                                 </h3>
                                 <div className="flex flex-wrap gap-2">
-                                    {items.map((s) => (
+                                    {items.map((s, si) => (
                                         <span
                                             key={s}
-                                            className="rounded-sm border border-zinc-800 px-2.5 py-1 font-mono text-[0.75rem] text-zinc-400"
+                                            className="reveal-stagger rounded-sm border border-zinc-800 px-2.5 py-1 font-mono text-[0.75rem] text-zinc-400"
+                                            style={{ ["--delay" as string]: `${gi * 100 + si * 40}ms` }}
                                         >
                                             {s}
                                         </span>
@@ -246,12 +295,15 @@ export default function Home() {
                     id="education"
                     className="mt-20 scroll-mt-24 border-t border-zinc-800 pt-16"
                 >
-                    <Label>04 — education</Label>
+                    <div className="reveal">
+                        <Label>04 — education</Label>
+                    </div>
                     {education.map((e, i) => (
                         <div
                             key={e.title}
-                            className={`grid grid-cols-1 gap-1 py-6 md:grid-cols-[120px_1fr] md:gap-6 ${i !== 0 ? "border-t border-zinc-800" : ""
+                            className={`reveal-stagger grid grid-cols-1 gap-1 py-6 md:grid-cols-[120px_1fr] md:gap-6 ${i !== 0 ? "border-t border-zinc-800" : ""
                                 }`}
+                            style={{ ["--delay" as string]: `${i * 120}ms` }}
                         >
                             <div className="pt-0.5 font-mono text-[0.78rem] text-zinc-400">
                                 {e.period}
@@ -270,25 +322,28 @@ export default function Home() {
                     id="contact"
                     className="mt-20 scroll-mt-24 border-t border-zinc-800 pt-16"
                 >
-                    <Label>05 — contact</Label>
-                    <p className="max-w-[480px] text-[1.4rem] font-semibold tracking-tight text-zinc-100">
+                    <div className="reveal">
+                        <Label>05 — contact</Label>
+                    </div>
+                    <p className="reveal max-w-[480px] text-[1.4rem] font-semibold tracking-tight text-zinc-100" style={{ transitionDelay: "80ms" }}>
                         Have a question or want to work together?
                     </p>
-                    <p className="mt-4">
+                    <p className="reveal mt-4" style={{ transitionDelay: "140ms" }}>
                         {/* replace with your email */}
                         <a
                             href="mailto:strnadaljaz23@gmail.com"
-                            className="border-b border-emerald-300 text-[1.1rem] text-zinc-100 transition-colors hover:text-emerald-300"
+                            className="link-underline border-b border-emerald-300 text-[1.1rem] text-zinc-100 transition-colors hover:text-emerald-300"
                         >
                             strnadaljaz23@gmail.com
                         </a>
                     </p>
-                    <p className="mt-4 max-w-[480px] text-zinc-400">
+                    <p className="reveal mt-4 max-w-[480px] text-zinc-400" style={{ transitionDelay: "200ms" }}>
                         Location: Slovenia. I usually reply within one business day.
                     </p>
 
-                    <footer className="mt-20 border-t border-zinc-800 pt-6 font-mono text-[0.72rem] text-zinc-400">
-                        © {currentYear} Aljaž Strnad · Built with Next.JS                    </footer>
+                    <footer className="reveal mt-20 border-t border-zinc-800 pt-6 font-mono text-[0.72rem] text-zinc-400" style={{ transitionDelay: "260ms" }}>
+                        © {currentYear} Aljaž Strnad · Built with Next.JS
+                    </footer>
                 </section>
             </main>
         </div>
