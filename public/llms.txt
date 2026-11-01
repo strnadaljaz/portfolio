@@ -1,0 +1,35 @@
+# Aljaž Strnad
+
+Aljaž Strnad is a programmer and computer science student in Maribor, Slovenia, focused on full-stack development, process automation, AI/ML applications, Next.js, Python, and FastAPI.
+
+## Projects
+
+- **World Championship Match Preview** — AI football outcome prediction app using Python, FastAPI, XGBoost, Next.js, and ML. Live: https://international-match-predictor.vercel.app/ · GitHub: https://github.com/strnadaljaz/world_cup_match_predictor
+- **ISS Tracker** — ISS visibility predictions, Telegram notifications, and ESP32 servo control. Python, ESP32, FastAPI, Skyfield. GitHub: https://github.com/strnadaljaz/iss_tracker
+- **Kokovit Webpage** — Business webpage and web store for Kokovit. Next.js.
+- **Raylib 3D Solar System** — 3D solar system side project. C++, Raylib, 3D.
+
+## Skills
+
+- **Languages:** Python, C, C++, JavaScript, TypeScript, SQL, PHP
+- **Frontend:** React, Next.js, HTML, CSS, TailwindCSS
+- **Backend:** Node.js, FastAPI, REST APIs, MySQL
+- **DevOps:** Docker, Linux, Git
+- **Hardware:** ESP32, Arduino
+- **Photo / Video:** Adobe Software, GIMP
+
+## Experience
+
+- **Freelance IT Solutions Developer — Independent** (Oct 2025 — Present): Web solutions, business automation, performance optimization, and administrative workflow improvements.
+- **Web Developer — InteractIdeas.pt Internship** (Oct 2023 — Nov 2023): AI learning platform development with React, Django, PHP, and MySQL.
+
+## Education
+
+- **Bachelors in Computer Science and Information Technologies**, FERI (2025 — 2028).
+- **Computer Technician**, Secondary Electrical and Computer School Maribor (2021 — 2025).
+
+## Contact
+
+Email: aljaz.strnad@student.um.si · GitHub: https://github.com/strnadaljaz · LinkedIn: https://linkedin.com/in/aljaz-strnad · Location: Maribor, Slovenia
+
+Canonical URL: https://strnadaljaz.si
