@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Aljaž Strnad — Portfolio
 
-## Getting Started
+A minimal, single-page portfolio for a programmer and CS student.
+Built with Next.js (App Router), TypeScript, and Tailwind CSS.
 
-First, run the development server:
+Live: https://strnadaljaz.si
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## License — Public Domain (CC0 1.0 Universal)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+This project is released into the **public domain** under the
+**Creative Commons Zero v1.0 Universal (CC0 1.0)** dedication.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+You can do **whatever you want** with this code:
 
-## Learn More
+- Use it for personal or commercial projects.
+- Modify it, remix it, rename it.
+- Distribute it, sublicense it, sell it.
+- **Do not keep this license file.**
+- **Do not credit me.** Attribution is not required, not expected,
+  and not requested.
 
-To learn more about Next.js, take a look at the following resources:
+There are **no conditions**. No warranty. No liability. Use it as if
+you wrote it yourself.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Full legal text: https://creativecommons.org/publicdomain/zero/1.0/legalcode
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### What this does NOT cover
 
-## Deploy on Vercel
+The CC0 dedication applies to the **source code** in this repository.
+It does **not** apply to:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- The name **"Aljaž Strnad"**.
+- The photo of Aljaž Strnad.
+- The CV content, personal data, or any text that describes Aljaž Strnad
+  specifically (projects, experience, education, achievements, contact
+  details).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Those are personal and remain the property of Aljaž Strnad. If you reuse
+this project, **replace all personal content with your own**. You may not
+present yourself as Aljaž Strnad or reuse his identity.
+
+### No warranty
+
+The software is provided "as is", without warranty of any kind, express or
+implied. In no event shall the author be liable for any claim, damages, or
+other liability arising from the use of the software.
+
+---
