@@ -1,4 +1,5 @@
 import Label from "@/Helpers/Label";
+import Link from "next/link";
 import { currentYear } from "@/Data/main";
 
 const Contact = () => {
@@ -76,11 +77,11 @@ const Contact = () => {
                     I usually reply within one business day.
                 </p>
 
-                <footer
-                    className="reveal mt-20 border-t border-zinc-800 pt-6 font-mono text-[0.72rem] text-zinc-400"
-                    style={{ transitionDelay: "260ms" }}
-                >
-                    © {currentYear} Aljaž Strnad · Built with Next.JS
+                <footer className="reveal mt-20 border-t border-zinc-800 pt-6 font-mono text-[0.72rem] text-zinc-400" style={{ transitionDelay: "260ms" }}>
+                    © {currentYear} Aljaž Strnad · Built with Next.JS ·{" "}
+                    <Link href="/privacy" className="link-underline hover:text-emerald-300">
+                        privacy
+                    </Link>
                 </footer>
             </section>
         </div>

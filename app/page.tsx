@@ -1,6 +1,7 @@
 import type { CSSProperties } from "react";
 import PortfolioClient, { type PortfolioData } from "@/app/components/PortfolioClient";
 import Avatar from "@/Components/Avatar";
+import Contact from "@/Components/Contact";
 import Navbar from "@/Components/Navbar";
 
 const data = {
@@ -192,19 +193,7 @@ export default function Home() {
                             {data.education.map((item, index) => <div key={item.title} className={`reveal-stagger grid grid-cols-1 gap-1 py-6 md:grid-cols-[120px_1fr] md:gap-6 ${index !== 0 ? "border-t border-zinc-800" : ""}`} style={{ ...revealDelay(index * 120), ["--delay" as string]: `${index * 120}ms` }}><div className="pt-0.5 font-mono text-[0.78rem] text-zinc-400">{item.period}</div><div><h3 className="text-[1.05rem] font-semibold">{item.title}</h3><div className="mt-0.5 text-sm text-emerald-300">{item.org}</div><p className="mt-2 text-sm text-zinc-400">{item.note}</p></div></div>)}
                             <div className="mt-8 reveal-stagger"><h3 className="mb-3 font-mono text-xs uppercase tracking-wider text-emerald-300">Achievements</h3><ul className="space-y-1 text-sm text-zinc-400 marker:text-zinc-600">{data.achievements.map((achievement) => <li key={achievement} className="flex gap-2"><span className="text-emerald-300/70">—</span><span>{achievement}</span></li>)}</ul></div>
                         </section>
-                        <section id="contact" className="mt-20 scroll-mt-24 border-t border-zinc-800 pt-16">
-                            <div className="reveal mb-6 font-mono text-[0.75rem] uppercase tracking-widest text-emerald-300">06 — contact</div>
-                            <p className="reveal max-w-[480px] text-[1.4rem] font-semibold tracking-tight text-zinc-100" style={revealDelay(80)}>Have a question or want to work together?</p>
-                            <ul className="reveal mt-4 space-y-2 font-mono text-sm" style={revealDelay(140)}>
-                                <li><span className="text-zinc-500">email · </span><a href="mailto:aljaz.strnad@student.um.si" className="link-underline text-zinc-100 transition-colors hover:text-emerald-300">aljaz.strnad@student.um.si</a></li>
-                                <li><span className="text-zinc-500">phone · </span><a href="tel:+38651769401" className="link-underline text-zinc-100 transition-colors hover:text-emerald-300">+386 (0)51 769 401</a></li>
-                                <li><span className="text-zinc-500">linkedin · </span><a href="https://linkedin.com/in/aljaz-strnad" target="_blank" rel="noopener noreferrer" className="link-underline text-zinc-100 transition-colors hover:text-emerald-300">/in/aljaz-strnad</a></li>
-                                <li><span className="text-zinc-500">github · </span><a href="https://github.com/strnadaljaz" target="_blank" rel="noopener noreferrer" className="link-underline text-zinc-100 transition-colors hover:text-emerald-300">/strnadaljaz</a></li>
-                                <li><span className="text-zinc-500">location · </span><span className="text-zinc-300">Maribor, Slovenia</span></li>
-                            </ul>
-                            <p className="reveal mt-4 max-w-[480px] text-zinc-400" style={revealDelay(200)}>I usually reply within one business day.</p>
-                            <footer className="reveal mt-20 border-t border-zinc-800 pt-6 font-mono text-[0.72rem] text-zinc-400" style={revealDelay(260)}>© 2026 Aljaž Strnad · Built with Next.JS</footer>
-                        </section>
+                        <Contact />
                     </main>
                 </div>
             </PortfolioClient>
