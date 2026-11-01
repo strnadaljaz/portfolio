@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import { ProgressProvider } from "@/Contexts/ProgressContext";
+import { ActiveProvider } from "@/Contexts/ActiveContext";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono" });
@@ -18,7 +20,14 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en" className={`${inter.variable} ${mono.variable}`}>
-            <body className="font-sans">{children}</body>
+            <body className="font-sans">
+                <ProgressProvider>
+                    <ActiveProvider>
+                        {children}
+                    </ActiveProvider>
+                </ProgressProvider>
+
+            </body>
         </html>
     );
 }
