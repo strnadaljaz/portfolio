@@ -39,7 +39,7 @@ export const projects = [
     {
         title: "Raylib 3D Solar System",
         type: "side project",
-        description: "A 3D solar system built with Raylib. Written in my free time.",
+        description: "A simple 3D solar system built with Raylib.",
         tech: "C++ · Raylib · 3D",
         links: [],
     },
@@ -91,7 +91,7 @@ export const education = [
         title: "Bachelors in Computer Science and Information Technologies",
         period: "2025 — 2028",
         org: "FERI — Faculty of Electrical Engineering, Computer Science and Informatics",
-        note: "Currently in my first year. Focusing on automation, AI/ML engineering, web development, server management, and personal projects.",
+        note: "Currently in my second year. Focusing on automation, AI/ML engineering, web development and server managment.",
     },
     {
         title: "Computer Technician",
