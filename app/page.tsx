@@ -3,6 +3,7 @@ import PortfolioClient, { type PortfolioData } from "@/app/components/PortfolioC
 import Avatar from "@/Components/Avatar";
 import Contact from "@/Components/Contact";
 import Navbar from "@/Components/Navbar";
+import { achievements, education } from "@/Data/main";
 
 const data = {
     navItems: [
@@ -79,25 +80,8 @@ const data = {
             ],
         },
     ],
-    education: [
-        {
-            title: "Bachelors in Computer Science and Information Technologies",
-            period: "2025 — 2028",
-            org: "FERI — Faculty of Electrical Engineering, Computer Science and Informatics",
-            note: "Currently in my first year. Focusing on automation, AI/ML engineering, web development, server management, and personal projects.",
-        },
-        {
-            title: "Computer Technician",
-            period: "2021 — 2025",
-            org: "Secondary Electrical and Computer School Maribor",
-            note: "Got fundamentals in C++ programming and web programming with HTML, CSS and PHP.",
-        },
-    ],
-    achievements: [
-        "Three times among the best in the country in mathematics — 1st place, 3rd place, silver award.",
-        "Silver award for research work.",
-        "Awarded as one of the best students of my generation by Elektro Maribor.",
-    ],
+    education,
+    achievements,
 } satisfies PortfolioData;
 
 const revealDelay = (milliseconds: number): CSSProperties =>
