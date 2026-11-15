@@ -3,83 +3,13 @@ import PortfolioClient, { type PortfolioData } from "@/app/components/PortfolioC
 import Avatar from "@/Components/Avatar";
 import Contact from "@/Components/Contact";
 import Navbar from "@/Components/Navbar";
-import { achievements, education } from "@/Data/main";
+import { navItems, projects, skills, experience, achievements, education } from "@/Data/main";
 
 const data = {
-    navItems: [
-        { href: "#about", label: "about" },
-        { href: "#projects", label: "projects" },
-        { href: "#experience", label: "experience" },
-        { href: "#skills", label: "skills" },
-        { href: "#education", label: "education" },
-        { href: "#contact", label: "contact" },
-    ],
-    projects: [
-        {
-            title: "World Championship Match Preview",
-            type: "machine learning",
-            description:
-                "AI web app for predicting international football match outcomes. XGBoost model trained on 5,000+ historical matches, ~60% accuracy. FastAPI backend serves predictions; Next.js frontend with animated graphs.",
-            tech: "Python · FastAPI · XGBoost · Next.js · ML",
-            links: [
-                { label: "Live Demo", href: "https://international-match-predictor.vercel.app/" },
-                { label: "GitHub", href: "https://github.com/strnadaljaz/world_cup_match_predictor" },
-            ],
-        },
-        {
-            title: "ISS Tracker",
-            type: "hardware",
-            description:
-                "Automated system that predicts when the ISS is visible from a given location, sends a Telegram notification, and points servo motors via ESP32 at the station.",
-            tech: "Python · ESP32 · FastAPI · Skyfield",
-            links: [{ label: "GitHub", href: "https://github.com/strnadaljaz/iss_tracker" }],
-        },
-        {
-            title: "Kokovit Webpage",
-            type: "web",
-            description: "Built a webpage and web store for a local business, Kokovit.",
-            tech: "Next.JS",
-            links: [],
-        },
-        {
-            title: "Raylib 3D Solar System",
-            type: "side project",
-            description: "A 3D solar system built with Raylib. Written in my free time.",
-            tech: "C++ · Raylib · 3D",
-            links: [],
-        },
-    ],
-    skills: {
-        Languages: ["Python", "C", "C++", "JavaScript", "TypeScript", "SQL", "PHP"],
-        Frontend: ["React", "Next.js", "HTML", "CSS", "TailwindCSS"],
-        Backend: ["Node.js", "FastAPI", "REST APIs", "MySQL"],
-        DevOps: ["Docker", "Linux", "Git"],
-        Hardware: ["ESP32", "Arduino"],
-        "Photo / Video": ["Adobe Software", "GIMP"],
-    },
-    experience: [
-        {
-            role: "Freelance IT Solutions Developer",
-            company: "Independent",
-            period: "Oct 2025 — Present",
-            bullets: [
-                "Worked with various companies and developed web solutions tailored to their needs.",
-                "Automated business processes, including quote generation and customer communication.",
-                "Optimized website performance — results above 90 points on Google PageSpeed.",
-                "Automation reduced repetitive administrative work by ~20 hours per month.",
-            ],
-        },
-        {
-            role: "Web Developer",
-            company: "InteractIdeas.pt — Internship",
-            period: "Oct 2023 — Nov 2023",
-            bullets: [
-                "Practical training abroad.",
-                "Participated in the development of an AI platform that prepares learning units for teachers.",
-                "Worked with React, Django, PHP, and MySQL.",
-            ],
-        },
-    ],
+    navItems,
+    projects,
+    skills,
+    experience,
     education,
     achievements,
 } satisfies PortfolioData;
